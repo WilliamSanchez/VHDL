@@ -3,3 +3,4 @@
 *_tb
 simu/*.vcd
 build/
+output/

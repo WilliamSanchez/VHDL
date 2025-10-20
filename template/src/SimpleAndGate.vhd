@@ -11,7 +11,7 @@ entity SimpleAndGate is
 end entity;
 
 
-architecture behavioral of SimpleAndGate is
+architecture teste of SimpleAndGate is
 begin
     O <= A and B;
 end architecture;

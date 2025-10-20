@@ -33,8 +33,8 @@ else
 endif
 
 # Source VHDL files
-SOURCES = $(wildcard $(SRC)/*.vhdl)
-TARGETS = $(patsubst $(SRC)/%.vhdl, %, $(SOURCES))
+SOURCES = $(wildcard $(SRC)/*.vhd)
+TARGETS = $(patsubst $(SRC)/%.vhd, %, $(SOURCES))
 # Simulation files
 SIMULATIONS = $(wildcard $(SIMU)/*.vcd)
 
@@ -47,10 +47,10 @@ all: builddir $(TARGETS)
 
 
 # IP with test bench
-%: $(SRC)/%.vhdl $(TB)/%_tb.vhdl
-	@echo "\033[0;33m[Compiling \`$@.vhdl\` & \`$@_tb.vhdl\` ...]\033[0m"
-	$(GHDL) -s --workdir=$(BUILD) $(SRC)/$@.vhdl $(TB)/$@_tb.vhdl
-	$(GHDL) -a --workdir=$(BUILD) $(SRC)/$@.vhdl $(TB)/$@_tb.vhdl
+%: $(SRC)/%.vhd $(TB)/%_tb.vhd
+	@echo "\033[0;33m[Compiling \`$@.vhd\` & \`$@_tb.vhd\` ...]\033[0m"
+	$(GHDL) -s --workdir=$(BUILD) $(SRC)/$@.vhd $(TB)/$@_tb.vhd
+	$(GHDL) -a --workdir=$(BUILD) $(SRC)/$@.vhd $(TB)/$@_tb.vhd
 	$(GHDL) -e --workdir=$(BUILD) -o $(BUILD)/$@_tb $@_tb
 
 	@echo "\033[0;33m[Running simulation of \`$@_tb\` ...]\033[0m"
@@ -61,10 +61,13 @@ all: builddir $(TARGETS)
 
 
 # IP without test bench
-%: $(SRC)/%.vhdl
-	@echo "\033[0;33m[Compiling \`$@.vhdl\` ...]\033[0m"
-	$(GHDL) -s --workdir=$(BUILD) $(SRC)/$@.vhdl
-	$(GHDL) -a --workdir=$(BUILD) $(SRC)/$@.vhdl
+%: $(SRC)/%.vhd
+	@echo "\033[0;33m[Compiling \`$@.vhd\` ...]\033[0m"
+	$(GHDL) -s --workdir=$(BUILD) $(SRC)/$@.vhd
+	$(GHDL) -a --workdir=$(BUILD) $(SRC)/$@.vhd
+
+# Dependencies
+AwesomeTripleAndGate: SimpleAndGate
 
 
 builddir:
