@@ -1,13 +1,9 @@
-#TOP_MODULE="src/AwesomeTripleAndGate"
-TOP_MODULE="wesomeTripleAndGate"
+TOP_MODULE="src/AwesomeTripleAndGate"
 DEVICE="xc6slx16-2-ftg256" #"xc3s250e-ft256-4" #
 
 #Set up Xilinx environment
 source /opt/Xilinx/14.7/ISE_DS/settings64.sh
 
-if [ -d "output" ]; then
-    rm -rf output
-fi
 mkdir output
 
 xflow -wd ./output -p "$DEVICE" -synth xst_vhdl -implement balanced -config bitgen $TOP_MODULE

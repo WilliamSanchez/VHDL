@@ -15,7 +15,7 @@ end entity;
 architecture behavioral of AwesomeTripleAndGate is
     signal temp : std_logic;
 begin
-    -- AND0: entity work.SimpleAndGate(teste) port map (A, B, temp);
-    -- AND1: entity work.SimpleAndGate(teste) port map (C, temp, O);
-     O <= A and B and C;
+     AND0: entity work.SimpleAndGate(teste) port map (A, B, temp);
+     AND1: entity work.SimpleAndGate(teste) port map (C, temp, O);
+    -- O <= A and B and C;
 end architecture;
