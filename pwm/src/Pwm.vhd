@@ -8,7 +8,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.round;
 
-entity pwm is
+entity Pwm is
     generic(
         clk_hz : real;
         pulse_hz : real; -- PWM pulse frequency
@@ -22,8 +22,8 @@ entity pwm is
         position : in  integer range 0 to step_count -1;
         pwm_out : out std_logic
     );
-end pwm;
-architecture behavioral of pwm is
+end Pwm;
+architecture behavioral of Pwm is
     
     function cycles_per_us(us_count : real ) return integer is
     begin
@@ -76,7 +76,8 @@ architecture behavioral of pwm is
             if rst = '1' then
                 duty_cycle <= min_count;
             else
-                duty_cycle <= position * cycles_per_step + min_count;        
+                --duty_cycle <= position * cycles_per_step + min_count;
+                duty_cycle <= position + min_count;        
             end if ;
         end if ;
     end process;

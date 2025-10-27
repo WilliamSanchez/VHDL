@@ -1,7 +1,7 @@
 # Flag to indicate wether we are in debug mode or not
 DEBUG ?= 1
 # Default max simulation time
-SIMTIME ?= 1sec
+SIMTIME ?= 100ns
 
 # VHDL compiler
 GHDL = ghdl

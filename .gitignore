@@ -1,6 +1,6 @@
 *.o
 *.cf
 *_tb
-simu/*.vcd
+**/simu/*.vcd
 build/
 output/
