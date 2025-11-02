@@ -1,0 +1,8 @@
+ NET "clk" 	    LOC = "T8";
+ NET "pwm" 		 LOC = "J16";
+ NET "rst" 	    LOC = "L3"; 
+ NET "up" 	    LOC = "C3" | CLOCK_DEDICATED_ROUTE = FALSE;
+ NET "down" 	 LOC = "D3" | CLOCK_DEDICATED_ROUTE = FALSE;
+ NET "upled" 		LOC = "P4";
+ NET "downled" 	LOC = "N5";
+ 

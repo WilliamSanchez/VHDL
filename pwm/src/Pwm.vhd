@@ -40,7 +40,8 @@ architecture behavioral of Pwm is
     signal counter : integer range 0 to counter_max;
     signal duty_cycle : integer range 0 to max_count;
 
-    begin
+begin
+    
     COUNTER_PROC : process(clk)
     begin
         if rising_edge(clk) then

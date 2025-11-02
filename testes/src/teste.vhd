@@ -2,20 +2,27 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity teste is
-    port (
-        clk : in  std_logic;
-        rst : in  std_logic;
-        d : in  std_logic_vector(3 downto 0);
-        q : buffer std_logic_vector(3 downto 0)
-    );
-end entity;
+    Port ( key4 : in  STD_LOGIC;
+           key3 : in  STD_LOGIC;
+           led0 : out  STD_LOGIC;
+           led1 : out  STD_LOGIC);
+end teste;
 
-architecture behavioral of teste is
+architecture Behavioral of teste is
+
 begin
-     abc: process(clk, rst,  d)
-     begin
-        if rst = '0' then q <= "0000";
-        elsif rising_edge(clk) then q <= d;
-        end if;
-     end process abc;
-end architecture;
+
+    led0 <= not key4;
+	 led1 <= key3;
+
+
+end Behavioral;
+
+--abc: process(clk, rst,  key)
+--begin
+--   --clk_out <= clk;
+--   if rst = '0' then led <= "0000";
+--   else led <= "1111";
+--   end if;
+--end process abc;
+--clk_out <= clk;

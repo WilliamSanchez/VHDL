@@ -9,7 +9,8 @@ entity teste_tb is
         rst_t : BUFFER std_logic;
         d_t : BUFFER std_logic_vector(3 downto 0);
         q_t : BUFFER std_logic_vector(3 downto 0);
-        q : BUFFER std_logic_vector(3 downto 0)
+        q : BUFFER std_logic_vector(3 downto 0);
+        clk_o : out std_logic
     );
 end entity;
 
@@ -32,7 +33,8 @@ architecture behavioral of teste_tb is
             clk : in  std_logic;
             rst : in  std_logic;
             d : in  std_logic_vector(3 downto 0);
-            q : buffer std_logic_vector(3 downto 0)
+            q : buffer std_logic_vector(3 downto 0);
+            clk_out : out std_logic
         );
      end component;
 
@@ -57,6 +59,6 @@ begin
         report "valor da saida q difere do valor proposto" severity error;
     end process;
 
-    x1 : teste port map(ck_t, rst_t, d_t, q);
+    x1 : teste port map(ck_t, rst_t, d_t, q, clk_o);
 
 end architecture;
