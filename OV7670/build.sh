@@ -1,5 +1,5 @@
 #TOP_MODULE="src/AwesomeTripleAndGate"
-TOP_MODULE="wesomeTripleAndGate"
+TOP_MODULE="src/ov7670.vhd"
 DEVICE="xc6slx16-2-ftg256" #"xc3s250e-ft256-4" #
 
 #Set up Xilinx environment
@@ -9,8 +9,10 @@ if [ -d "output" ]; then
     rm -rf output
 fi
 mkdir output
+cp *.ucf output
 
 xflow -wd ./output -p "$DEVICE" -synth xst_vhdl -implement balanced -config bitgen $TOP_MODULE
+cp output/*.bit .
 
 echo "Bitstream genration complete: $TOP_MODULE_par.bit"
 

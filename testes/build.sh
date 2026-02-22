@@ -8,8 +8,11 @@ if [ -d "output" ]; then
     rm -rf output
 fi
 mkdir output
+cp *.ucf output
 
 xflow -wd ./output -p "$DEVICE" -synth xst_vhdl -implement balanced -config bitgen $TOP_MODULE
+
+cp output/*.bit .
 
 echo "Bitstream genration complete: $TOP_MODULE_par.bit"
 

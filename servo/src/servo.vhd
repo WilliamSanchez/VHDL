@@ -43,9 +43,9 @@ entity servo is
            rst : in  STD_LOGIC;
            up : in  STD_LOGIC;
            down : in  STD_LOGIC;
-			  pwm : out  STD_LOGIC;
-			  upled : out  STD_LOGIC;
-			  downled : out  STD_LOGIC);
+	   pwm : out  STD_LOGIC;
+	   upled : out  STD_LOGIC;
+	   downled : out  STD_LOGIC);
 end servo;
 
 architecture Behavioral of servo is

@@ -1,0 +1,4 @@
+ NET "key4" LOC = "E3";
+ NET "key3" LOC = "E4";
+ NET "led0" LOC = "P4";
+ NET "led1" LOC = "N5";

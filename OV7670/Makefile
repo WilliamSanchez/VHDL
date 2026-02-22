@@ -1,7 +1,7 @@
 # Flag to indicate wether we are in debug mode or not
 DEBUG ?= 1
 # Default max simulation time
-SIMTIME ?= 100ns
+SIMTIME ?= 1sec
 
 # VHDL compiler
 GHDL = ghdl
@@ -67,7 +67,6 @@ all: builddir $(TARGETS)
 	$(GHDL) -a --workdir=$(BUILD) $(SRC)/$@.vhd
 
 # Dependencies
-AwesomeTripleAndGate: SimpleAndGate
 
 
 builddir:
